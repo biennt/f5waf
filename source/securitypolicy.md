@@ -1,6 +1,6 @@
 # Tạo security policy
 
-> Lưu ý: Trước khi tiến hành các bước dưới đây (với bất kỳ loại policy nào), cần đảm bảo rằng ứng dụng đang hoạt động với F5 BIG-IP đóng vai trò như thiết bị cân bằng tải, reverse proxy. Nghĩa là các cấu hình liên quan như DNS, node, pool, monitor, ssl, virtual server đều đang hoạt động đúng và người sử dụng có thể truy cập bình thường.
+Trước khi tiến hành các bước dưới đây (với bất kỳ loại policy nào), cần đảm bảo rằng ứng dụng đang hoạt động với F5 BIG-IP đóng vai trò như thiết bị cân bằng tải, reverse proxy. Nghĩa là các cấu hình liên quan như DNS, node, pool, monitor, ssl, virtual server đều đang hoạt động đúng và người sử dụng có thể truy cập bình thường.
 
 ## 1. Khởi tạo chính sách bảo mật chế độ triển khai theo loại ứng dụng (ví dụ Wordpress)
 Trường hợp này, người quản trị bảo mật đã có hiểu biết rằng ứng dụng mà mình đang thiếp lập chính sách bảo mật được phát triển dựa trên wordpress
@@ -9,6 +9,7 @@ Trường hợp này, người quản trị bảo mật đã có hiểu biết r
 Trên giao diện quản trị web của F5 BIG-IP, vào menu `Security` > `Application Security` > `Security Policies` > `Policies List`, bấm vào nút `Create`.
 
 Trong màn hình tiếp theo:
+
 - Policy Name : đặt tên cho policy, ví dụ `wordpress_waf_policy`
 - Policy Template: chọn mục `Application-ready templates` > `Wordpress v4.9`
 - Virtual Server: chọn virtual server sẽ apply (đang chạy Wordpress trên đó)
@@ -27,6 +28,7 @@ Nói chung, kiểu triển khai này có thể giải quyết được đa số 
 Trên giao diện quản trị web của F5 BIG-IP, vào menu `Security` > `Application Security` > `Security Policies` > `Policies List`, bấm vào nút `Create`.
 
 Trong màn hình tiếp theo:
+
 - Policy Name : đặt tên cho policy, ví dụ `rapid_waf_policy`
 - Policy Template: chọn mục `Rapid Deployment Policy`
 - Virtual Server: chọn virtual server sẽ apply (đang chạy ứng dụng trên đó)
@@ -48,6 +50,7 @@ Trường hợp này, người quản trị mong muốn hệ thống F5 BIG-IP �
 Trên giao diện quản trị web của F5 BIG-IP, vào menu `Security` > `Application Security` > `Security Policies` > `Policies List`, bấm vào nút `Create`.
 
 Trong màn hình tiếp theo:
+
 - Policy Name : đặt tên cho policy, ví dụ `fundamental_waf_policy`
 - Policy Template: chọn mục `Fundamental`
 - Virtual Server: chọn virtual server sẽ apply (đang chạy ứng dụng trên đó)
@@ -69,6 +72,7 @@ Ví dụ như hình minh hoạ dưới đây:
 ![traffic learning](./traffic_learning.png "traffic learning")
 
 Người quản trị có thể chọn một trong các hành động:
+
 - Accept: chấp nhận gợi ý, chuyển thành thiết lập chính thức. Để ý phần score (%), con số này càng lớn nghĩa là F5 BIG-IP càng tự tin với gợi ý đó, khả năng gợi ý chính xác càng cao.
 - Delete: xoá gợi ý này, không lưu gì vào policy. Gợi ý có thể lặp lại lần sau nếu có lưu lượng phù hợp. Trường hợp người quản trị chưa chắc chắn lắm về gợi ý có chính xác không nhưng muốn xoá tại thời điểm hiện tại
 - Ignore: bỏ qua gợi ý này và yêu cầu F5 BIG-IP không lặp lại gợi ý như vậy nữa (nghĩa là báo với hệ thống này rằng gợi ý như vậy là không đúng, không cần thay đổi gì về policy)
@@ -92,6 +96,7 @@ Tương tự như với 2 loại tạo chính sách bảo mật ở trên, ngư�
 
 ## 4. Khởi tạo chính sách bảo mật để chặn lọc các tấn công theo OWASP Top 10
 Trường hợp này, người quản trị bảo mật có mong muốn cấu hình các chính sách bảo mật nhằm ngăn chặn các tấn công được liệt kê trong danh sách Top 10 của OWASP.
+
 > Lưu ý: đây chỉ là các gợi ý, dẫn dắt (guide) của F5 BIG-IP về việc thiết lập một hệ thống WAF sao cho tuân thủ và chống lại được top 10 loại tấn công được liệt kê của tổ chức OWASP. Trong quá trình thiết lập, người quản trị cần **cân nhắc kỹ càng** mỗi khi cấu hình một mục nào đó. Đồng thời, có một số mục nằm ngoài hệ thống WAF này, nhưng vẫn là một mục cần phải làm để tuân thủ, hệ thống này **tin tưởng hoàn toàn** vào người quản trị khi đưa ra quyết định rằng: *"tôi đã thực hiện điều đó rồi"*.
 
 Trên giao diện quản trị web của F5 BIG-IP, vào menu `Security` > `Guided Configuration` > `Web Application Protection`.
@@ -106,6 +111,7 @@ Bên dưới có 3 mục nhỏ:
 Trong phạm vi của hướng dẫn này, ta chọn mục thứ 2: **Web Application Protection**.
 
 Tại màn hình tiếp theo, hệ thống gợi ý về những việc cần/sẽ thực hiện. Trong đó có một số yêu cầu bắt buộc:
+
 - Cấu hình DNS cho F5 BIG-IP, nếu người quản trị chưa thực hiện, có thể bấm vào đường link tương ứng để đến phần config DNS. Người quản trị có thể chọn bất cứ một DNS server nào cho phép truy vấn recursive, ví dụ 8.8.8.8 và/hoặc 1.1.1.1
 - Cấu hình NTP cho F5 BIG-IP, phần này là để F5 BIG-IP có thể đồng bộ thời gian chính xác cho bản thân nó. Có thể chọn máy chủ vn.pool.ntp.org
 - F5 BIG-IP cần có một default route và được phép truy cập trực tiếp ra Internet để có thể thực hiện các chức năng của mình, ví dụ cập nhật signature, database địa chỉ IP..
@@ -146,6 +152,7 @@ Như hình minh họa phía trên nghĩa là tỉ lệ tuân thủ là 0/10 - ch
 Người quản trị cần xem chi tiết các mục và đánh giá xem có cần thực hiện các biện pháp gì, cấu hình gì để đảm bảo tuân thủ.
 
 Ví dụ với mục **A1 Injection**, bấm vào đó, hệ thống sẽ cho chúng ta biết cần áp dụng:
+
 - Danh sách các loại signature chống tấn công (Buffer Overflow, Command Execution..)
 - Thực hiện thiết lập bảo vệ chống các cơ chế che dấu tấn công (Evasion Techniques)
 
@@ -181,6 +188,7 @@ Cứ như vậy, người quản trị làm lần lượt từ mục A2 đến A
 Một số mục có tính chất *gợi ý*, không có tác động nào thực tế được thực hiện, chẳng hạn mục A10:
 
 ![guided_config_waf_top10-8](./guided_config_waf_top10-8.png "guided_config_waf_top10-8")
+
 - Log Illegal Requests: ghi log các vi phạm
 - Remote Logging: ghi log ra log server bên ngoài
 

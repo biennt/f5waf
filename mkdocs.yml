@@ -4,8 +4,8 @@ theme:
 docs_dir: source
 site_dir: build
 nav:
-    - Home: index.md
-    - Pre: pre.md
-    - Security Policy: securitypolicy.md
-    - Other: other.md
-    - Bypass: bypass.md
+    - Giới thiệu tổng quan: index.md
+    - Chuẩn bị môi trường: pre.md
+    - Tạo các chính sách bảo mật: securitypolicy.md
+    - Các thiết lập và tinh chỉnh khác: other.md
+    - Bỏ qua chế độ chặn lọc WAF: bypass.md
