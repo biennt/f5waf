@@ -5,6 +5,9 @@ markdown_extensions:
   - admonition
 docs_dir: source
 site_dir: build
+plugins:
+    - with-pdf
+    
 nav:
     - Giới thiệu tổng quan: index.md
     - Chuẩn bị môi trường: pre.md
