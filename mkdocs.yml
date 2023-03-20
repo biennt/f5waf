@@ -1,6 +1,8 @@
 site_name: F5 Advanced WAF
 theme:
     name: readthedocs
+markdown_extensions:
+  - admonition
 docs_dir: source
 site_dir: build
 nav:

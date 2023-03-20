@@ -17,6 +17,7 @@ Với mỗi signature, bấm vào biểu tượng mũi tên sẽ cho biết thô
 ![attack_signature](./attack_signature-1.png "attack_signature") 
 
 Trong đó, lưu ý một số thông tin sau:
+
 - Signature name: tên gọi của signature, phần nào đoán được nó là gì
 - Signature ID: mã định danh của signature, sử dụng để tìm kiếm, mã định danh này là duy nhất đối với F5
 - Learn: tạo ra các gợi ý cho người quản trị về việc có nên áp dụng signature này không dựa vào lưu lượng thực tế (Learning Suggestion)
