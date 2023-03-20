@@ -1,0 +1,10 @@
+site_name: My Docs
+theme:
+    name: readthedocs
+
+nav:
+    - Home: index.md
+    - Pre: pre.md
+    - Security Policy: securitypolicy.md
+    - Other: other.md
+    - Bypass: bypass.md
