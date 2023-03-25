@@ -5,11 +5,10 @@ markdown_extensions:
   - admonition
 docs_dir: source
 site_dir: build
-plugins:
-    - with-pdf
-    
+ 
 nav:
     - Giới thiệu tổng quan: index.md
+    - Khởi tạo F5 BIG-IP trên VMWare WorkStation: init.md
     - Chuẩn bị môi trường: pre.md
     - Tạo các chính sách bảo mật: securitypolicy.md
     - Các thiết lập và tinh chỉnh khác: other.md
