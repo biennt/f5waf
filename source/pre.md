@@ -8,6 +8,7 @@
 - Hệ thống đã provision (bật) module ASM,
 
 Ví dụ sau đây sử dụng giao diện dòng lệnh của F5 BIG-IP để tạo một cấu hình dịch vụ với các thông tin:
+
 - Web server ở địa chỉ 10.1.10.11 port 80 (HTTP)
 - F5 BIG-IP WAF được cấu hình với địa chỉ Virtual IP là 10.1.20.10 port 80
 - F5 BIG-IP WAF sẽ monitor trạng thái của web server theo địa chỉ và port ở trên với phương thức `HTTP GET /` (nếu có mã 200 trả về là UP)
