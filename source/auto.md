@@ -171,6 +171,54 @@ Nội dung của payload gửi trong API như sau:
 ```
 Nếu muốn xoá dịch vụ này (bao gồm cả node, pool, virtual server..), cũng chỉ cần thay POST bằng DELETE kèm theo nội dung payload như vậy rồi gửi tới F5 BIG-IP.
 
+Thậm chí, theo một cách tương tự, có thể tạo luôn 1 bộ chính sách bảo mật và apply vào virtual server (nội dung policy lưu trong file XML download từ link khai báo bên dưới):
+
+```
+{
+  "class": "AS3",
+  "action": "deploy",
+  "persist": true,
+  "declaration": {
+    "class": "ADC",
+    "schemaVersion": "3.0.0",
+    "label": "SampleLabel",
+    "PartitionName": {
+      "class": "Tenant",
+      "vsName": {
+        "class": "Application",
+        "vsName": {
+          "class": "Service_HTTP",
+          "virtualAddresses": [
+            "192.168.31.13"
+          ],
+          "pool": "testpool",
+          "policyWAF": {
+            "use": "asmPolicy"
+          }
+        },
+          "asmPolicy": {
+          "class": "WAF_Policy",
+          "url": "https://raw.githubusercontent.com/biennt/f5waf/main/source/Test_WAF_Policy.xml",
+          "ignoreChanges": false
+        },
+        "testpool": {
+          "class": "Pool",
+          "monitors": [
+            "tcp"
+          ],
+          "members": [{
+            "servicePort": 80,
+            "serverAddresses": [
+              "192.168.31.11"
+            ]
+          }]
+        }
+      }
+    }
+  }
+}
+```
+
 Các ví dụ khác có thể xem thêm tại đây: https://github.com/F5Networks/f5-appsvcs-extension/tree/master/examples
 
 ## F5 Ansible Modules
