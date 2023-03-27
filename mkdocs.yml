@@ -13,4 +13,4 @@ nav:
     - Tạo các chính sách bảo mật: securitypolicy.md
     - Các thiết lập và tinh chỉnh khác: other.md
     - Bỏ qua chế độ chặn lọc WAF: bypass.md
-    - Tự động hoá cấu hình dịch vụ trên F5 BIG-IP với Ansible: ansible.md
+    - F5 BIG-IP API và các công cụ tự động hoá: auto.md
