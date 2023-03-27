@@ -123,15 +123,14 @@ Như thế, cần 3 lời gọi API để hoàn thành nhiệm vụ.
 
 Đối với AS3, hoạt động theo phong cách declarative, chỉ cần 1 lời gọi API duy nhất, chứa đầy đủ các thông tin cần thiết để tạo 1 virtual server là được.
 
-Ví dụ, gọi API tới endpoint như bên dưới kèm theo thông tin xác thực
+Ví dụ, 1 lời gọi API tới endpoint như bên dưới kèm theo thông tin xác thực
 
 ```
-
 POST https://192.168.31.12:8443/mgmt/shared/appsvcs/declare
 Authorization: Basic YWRtaW46YWRtaW4=
 ```
 
-Nội dung của payload như sau:
+Nội dung của payload gửi trong API như sau:
 ```
 {
   "class": "AS3",
@@ -170,6 +169,9 @@ Nội dung của payload như sau:
 }
 
 ```
+Nếu muốn xoá dịch vụ này (bao gồm cả node, pool, virtual server..), cũng chỉ cần thay POST bằng DELETE kèm theo nội dung payload như vậy rồi gửi tới F5 BIG-IP.
+
+Các ví dụ khác có thể xem thêm tại đây: https://github.com/F5Networks/f5-appsvcs-extension/tree/master/examples
 
 ## F5 Ansible Modules
 
