@@ -123,9 +123,10 @@ Như thế, cần 3 lời gọi API để hoàn thành nhiệm vụ.
 
 Đối với AS3, hoạt động theo phong cách declarative, chỉ cần 1 lời gọi API duy nhất, chứa đầy đủ các thông tin cần thiết để tạo 1 virtual server là được.
 
-Ví dụ:
+Ví dụ, gọi API tới endpoint như bên dưới kèm theo thông tin xác thực
+
 ```
-Gọi API tới endpoint như bên dưới kèm theo thông tin xác thực
+
 POST https://192.168.31.12:8443/mgmt/shared/appsvcs/declare
 Authorization: Basic YWRtaW46YWRtaW4=
 ```
