@@ -1,6 +1,6 @@
 # F5 BIG-IP API và các công cụ tự động hoá
 ## F5 BIG-IP iControlREST
-Tài liệu đầy đủ về F5 BIG-IP iControlREST có tại đây: https://clouddocs.f5.com/api/icontrol-rest/. ướng dẫn này chỉ đưa ra vài ví dụ để tham khảo. 
+Tài liệu đầy đủ về F5 BIG-IP iControlREST có tại đây: https://clouddocs.f5.com/api/icontrol-rest/. Hướng dẫn này chỉ đưa ra vài ví dụ để tham khảo. 
 
 iControl Rest sử dụng :
 
