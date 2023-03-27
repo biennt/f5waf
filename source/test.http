@@ -1,0 +1,38 @@
+POST https://192.168.31.12:8443/mgmt/shared/appsvcs/declare
+Authorization: Basic YWRtaW46YWRtaW4=
+
+{
+  "class": "AS3",
+  "action": "deploy",
+  "persist": true,
+  "declaration": {
+    "class": "ADC",
+    "schemaVersion": "3.0.0",
+    "label": "SampleLabel",
+    "PartitionName": {
+      "class": "Tenant",
+      "vsName": {
+        "class": "Application",
+        "vsName": {
+          "class": "Service_HTTP",
+          "virtualAddresses": [
+            "192.168.31.13"
+          ],
+          "pool": "testpool"
+        },
+        "testpool": {
+          "class": "Pool",
+          "monitors": [
+            "tcp"
+          ],
+          "members": [{
+            "servicePort": 80,
+            "serverAddresses": [
+              "192.168.31.11"
+            ]
+          }]
+        }
+      }
+    }
+  }
+}
