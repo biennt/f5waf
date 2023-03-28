@@ -1,0 +1,23 @@
+{
+   "policy" : {
+      "applicationLanguage" : "utf-8",
+      "caseInsensitive" : false,
+      "description" : "WAF Policy with Enforcement Mode is Blocking, Learning Mode is disabled, signature staging is disabled, server tech is none",
+      "enablePassiveMode" : false,
+      "enforcementMode" : "blocking",
+      "fullPath" : "/Common/waf_rdp_blockingmode_learningdisable",
+      "name" : "waf_rdp_blockingmode_learningdisable",
+      "policy-builder" : {
+         "learningMode" : "disabled"
+      },
+      "protocolIndependent" : false,
+      "signature-settings" : {
+         "signatureStaging" : false
+      },
+      "softwareVersion" : "17.1.0",
+      "template" : {
+         "name" : "POLICY_TEMPLATE_RAPID_DEPLOYMENT"
+      },
+      "type" : "security"
+   }
+}

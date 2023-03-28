@@ -1,5 +1,5 @@
-POST https://192.168.31.12:8443/mgmt/shared/appsvcs/declare
-Authorization: Basic YWRtaW46YWRtaW4=
+POST https://192.168.31.12/mgmt/shared/appsvcs/declare
+Authorization: Basic YXBpdXNlcjpiUGZhQzlCSjl4V1lXVXlY
 
 {
   "class": "AS3",
@@ -16,7 +16,7 @@ Authorization: Basic YWRtaW46YWRtaW4=
         "vsName": {
           "class": "Service_HTTP",
           "virtualAddresses": [
-            "192.168.31.13"
+            "10.1.10.11"
           ],
           "pool": "testpool",
           "policyWAF": {
@@ -25,7 +25,7 @@ Authorization: Basic YWRtaW46YWRtaW4=
         },
           "asmPolicy": {
           "class": "WAF_Policy",
-          "url": "https://raw.githubusercontent.com/biennt/f5waf/main/source/Test_WAF_Policy.xml",
+          "url": "https://raw.githubusercontent.com/biennt/f5waf/main/source/waf_rdp_blockingmode_learningdisable.json",
           "ignoreChanges": false
         },
         "testpool": {
@@ -34,9 +34,9 @@ Authorization: Basic YWRtaW46YWRtaW4=
             "tcp"
           ],
           "members": [{
-            "servicePort": 80,
+            "servicePort": 3000,
             "serverAddresses": [
-              "192.168.31.11"
+              "10.1.20.2"
             ]
           }]
         }
@@ -46,3 +46,6 @@ Authorization: Basic YWRtaW46YWRtaW4=
 }
 
 ### 
+GET https://192.168.31.12/mgmt/shared/appsvcs/info
+Authorization: Basic YXBpdXNlcjpiUGZhQzlCSjl4V1lXVXlY
+
